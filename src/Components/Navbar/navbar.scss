@@ -1,0 +1,207 @@
+.navbar {
+  padding: 20px 30px !important;
+  background-color: transparent !important;
+  position: absolute !important;
+  width: 100% !important;
+  z-index: 1000;
+
+  .container-fluid {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .navbar-brand img {
+    width: 60px;
+  }
+
+  // ── Custom Hamburger ──────────────────────────
+  .custom-toggler {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    margin-left: auto;
+    z-index: 10;
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 2px;
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+      transform-origin: center;
+    }
+
+    &.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    &.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    &.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+
+  // ── Collapsible Menu ─────────────────────────
+  .navbar-collapse-custom {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  // ── Nav Links ────────────────────────────────
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 30px !important;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .nav-item {
+      .nav-link {
+        position: relative;
+        display: inline-block;
+        color: #fff !important;
+        font-size: 16px;
+        font-family: var(--font-geist) !important;
+        font-weight: 400 !important;
+        text-decoration: none;
+        padding-bottom: 4px;
+        overflow: hidden;
+
+        .nav-underline {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1.5px;
+          background: linear-gradient(90deg, transparent, #fff, transparent);
+          transform: scaleX(0);
+          transform-origin: center;
+          transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        &:hover .nav-underline,
+        &.active .nav-underline {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  // ── Reservation Button ───────────────────────
+  .navbar-reservation-button {
+    height: 45px;
+    width: 130px;
+    font-family: var(--font-geist) !important;
+    border-radius: 4px;
+    font-size: 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition:
+      background 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+  }
+
+  // ── Responsive: Tablet & Mobile ──────────────
+  @media (max-width: 991px) {
+    .custom-toggler {
+      display: flex;
+    }
+
+    // Top row: brand + toggler, never wraps
+    .container-fluid {
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+
+    // Menu drops below the top row as a full-width block
+    .navbar-collapse-custom {
+      // Take up full width by breaking to its own row
+      order: 3;
+      flex-basis: 100%;
+      flex: none;
+
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 20px 16px;
+      border-radius: 8px;
+      margin-top: 12px;
+      gap: 16px;
+
+      // Animate open
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition:
+        max-height 0.35s ease,
+        opacity 0.3s ease;
+
+      &.show {
+        display: flex;
+        max-height: 400px;
+        opacity: 1;
+      }
+    }
+
+    .navbar-nav {
+      flex-direction: column !important;
+      gap: 4px !important;
+      width: 100%;
+
+      .nav-item .nav-link {
+        font-size: 17px;
+        padding: 10px 0;
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+    }
+
+    .d-flex {
+      width: 100%;
+      padding-top: 4px;
+
+      .navbar-reservation-button {
+        width: 100%;
+        height: 48px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px 16px !important;
+
+    .navbar-brand img {
+      width: 48px;
+    }
+  }
+}
