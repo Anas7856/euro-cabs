@@ -107,11 +107,21 @@
     height: 45px;
     width: 130px;
     font-family: var(--font-geist) !important;
-    border-radius: 4px;
+    border-radius: 99px;
+    border: none;
     font-size: 16px;
-    border: 1.5px solid rgba(255, 255, 255, 0.7);
-    background: transparent;
-    color: #fff;
+    // border: 1.5px solid rgba(255, 255, 255, 0.7);
+    background: linear-gradient(
+      267.12deg,
+      #c89938 -2.8%,
+      #d3a74f 15.4%,
+      #ffec93 35.11%,
+      #e4bf66 51.28%,
+      #fed87e 68.97%,
+      #c89938 86.66%,
+      #956e0f 102.33%
+    );
+    color: #000000;
     cursor: pointer;
     transition:
       background 0.3s ease,
