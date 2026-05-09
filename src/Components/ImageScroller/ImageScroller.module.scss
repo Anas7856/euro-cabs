@@ -1,0 +1,216 @@
+// ImageScroller.module.scss
+// VANTARA design system — image marquee scroller section
+
+$gold-gradient: linear-gradient(
+  267.12deg,
+  #c89938 -2.8%,
+  #d3a74f 15.4%,
+  #ffec93 35.11%,
+  #e4bf66 51.28%,
+  #fed87e 68.97%,
+  #c89938 86.66%,
+  #956e0f 102.33%
+);
+
+// ── Section
+.section {
+  position: relative;
+  background: #000;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 70% 50% at 50% 100%,
+      rgba(200, 153, 56, 0.07) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.sectionGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 2px;
+  background: $gold-gradient;
+  opacity: 0.25;
+  z-index: 1;
+}
+
+// ── Header
+.header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 620px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.label {
+  font-family: "Lato", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.7);
+}
+
+.labelLine {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: $gold-gradient;
+  opacity: 0.7;
+}
+
+.heading {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.9rem, 4vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.18;
+  color: #fff;
+  margin: 0 0 1.1rem;
+
+  span {
+    background: $gold-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.desc {
+  font-family: var(--font-mona), sans-serif;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+// ── Marquee rows
+.row {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  :global(.marquee-container) {
+    overflow: hidden !important;
+  }
+}
+
+// ── Image card
+.imageCard {
+  position: relative;
+  margin: 0;
+  margin-inline: 0.6rem;
+  width: 280px;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  &:hover .img {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  &:hover .overlay {
+    opacity: 0.5;
+  }
+
+  &:hover .caption {
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(200, 153, 56, 0.35);
+    background: rgba(200, 153, 56, 0.07);
+  }
+
+  @media (max-width: 600px) {
+    width: 220px;
+  }
+}
+
+// ── Image wrapper
+.imgWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.78;
+  transition:
+    transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.35s ease;
+  display: block;
+}
+
+.fallback {
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  opacity: 0.7;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+// ── Caption
+.caption {
+  display: inline-block;
+  margin-top: 0.65rem;
+  font-family: "Lato", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  padding: 0.32rem 0.9rem;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}

@@ -160,11 +160,12 @@
 
     /* ─── HEADING ─── */
     .hero-heading {
-      font-size: 75px;
+      font-size: 78px;
       font-weight: 500;
       margin-top: 0px;
-      font-family: var(--font-geist);
+      font-family: "Cormorant Garamond", Georgia, serif;
       width: 70%;
+      letter-spacing: 1px;
       line-height: -0.8;
       color: #ffffff;
       opacity: 1;
@@ -421,7 +422,7 @@
 
     .hero-content {
       .hero-heading {
-        font-size: 22px;
+        font-size: 28px !important;
         width: 95%;
       }
       p.reveal-subtitle {

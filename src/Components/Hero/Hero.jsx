@@ -2,7 +2,7 @@ import React from "react";
 import "./Hero.scss";
 import mercedesImg from "../../assets/magnific_a-black-mercedesbenz-scla_2941732922.png";
 
-const HEADING_WORDS = ["Your", "Ultimate", "Luxury", "Drive", "Awaits"];
+const HEADING_WORDS = ["Your", "Trusted", "Cabs", "Service", "Awaits"];
 
 const MARQUEE_ROW_ONE = [
   "Airport Transfers",
@@ -57,7 +57,9 @@ const Hero = () => {
               <div className="hero-badge">
                 <div className="badge-inner">
                   <span className="badge-dot" />
-                  <span className="badge-text">✦ Premium Collection 2025</span>
+                  <span className="badge-text">
+                    Pricing ✦ Timming ✦ Services{" "}
+                  </span>
                 </div>
               </div>
 
@@ -66,7 +68,7 @@ const Hero = () => {
                 {HEADING_WORDS.map((word, i) => (
                   <span className="word" key={i}>
                     <span style={{ animationDelay: `${0.3 + i * 0.07}s` }}>
-                      {word === "Ultimate" ? <em>{word}</em> : word}
+                      {word === "Trusted" ? <em>{word}</em> : word}
                     </span>
                   </span>
                 ))}

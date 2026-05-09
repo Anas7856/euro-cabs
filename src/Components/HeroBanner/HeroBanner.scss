@@ -1,0 +1,135 @@
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; // parallax feel
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+// Dark overlay
+.hero-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.65) 50%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+// Content centered
+.hero-banner__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 700px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-banner__label {
+  font-family: "Lato", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.8);
+  font-weight: 300;
+}
+
+.hero-banner__title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: 0.02em;
+
+  span {
+    background: linear-gradient(
+      267.12deg,
+      #c89938 -2.8%,
+      #d3a74f 15.4%,
+      #ffec93 35.11%,
+      #e4bf66 51.28%,
+      #fed87e 68.97%,
+      #c89938 86.66%,
+      #956e0f 102.33%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.hero-banner__desc {
+  font-family: var(--font-mona);
+  font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  max-width: 520px;
+}
+
+.hero-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mona);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    267.12deg,
+    #c89938 -2.8%,
+    #d3a74f 15.4%,
+    #ffec93 35.11%,
+    #e4bf66 51.28%,
+    #fed87e 68.97%,
+    #c89938 86.66%,
+    #956e0f 102.33%
+  );
+  color: #000;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  margin-top: 8px;
+
+  &:hover {
+    opacity: 0.88;
+    transform: scale(1.03);
+  }
+
+  svg {
+    transition: transform 0.25s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(4px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-banner {
+    background-attachment: scroll; // fixed doesn't work well on iOS
+  }
+
+  .hero-banner__title {
+    font-size: 2.6rem;
+  }
+}

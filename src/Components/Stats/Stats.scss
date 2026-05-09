@@ -1,0 +1,117 @@
+.stats-section {
+  background-color: #000;
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 50% 60%,
+      rgba(180, 140, 60, 0.07) 0%,
+      transparent 65%
+    );
+    pointer-events: none;
+  }
+}
+
+.stats-heading {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.9rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 14px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.stats-subheading {
+  font-family: "Lato", "Helvetica Neue", sans-serif;
+  font-size: clamp(0.82rem, 1.8vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 0 56px;
+  letter-spacing: 0.04em;
+  font-weight: 300;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 0 0px;
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0 0px;
+  /* NO opacity/transform transitions — prevents shaking */
+}
+
+.stats-divider {
+  width: 1px;
+  height: 70px;
+  background-color: rgba(94, 90, 90, 0.781);
+  flex-shrink: 0;
+}
+
+.stat-number {
+  font-family: var(--font-geist);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 500;
+  background: linear-gradient(
+    135deg,
+    #c9a84c 0%,
+    #f5d98b 40%,
+    #b8860b 70%,
+    #e2b96f 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  /* Fixed width prevents layout shift during count-up */
+  min-width: 4ch;
+  display: inline-block;
+  text-align: center;
+}
+
+.stat-label {
+  font-family: "Lato", "Helvetica Neue", sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.48);
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 300;
+  line-height: 1.5;
+  white-space: nowrap; // ← add this
+}
+
+@media (max-width: 700px) {
+  .stats-section {
+    padding: 60px 16px;
+  }
+
+  .stats-grid {
+    flex-wrap: wrap;
+    gap: 36px 0;
+  }
+
+  .stats-divider {
+    display: none;
+  }
+
+  .stat-item {
+    flex: 0 0 50%;
+    padding: 0 12px;
+  }
+}

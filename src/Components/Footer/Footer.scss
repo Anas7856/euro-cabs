@@ -1,0 +1,328 @@
+.footer {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+
+  // ── Radial gold glow (same pattern as all sections)
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 70% 40% at 50% 0%,
+      rgba(200, 153, 56, 0.07) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // ── Top gold line accent
+  &__glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(
+      267.12deg,
+      #c89938 -2.8%,
+      #d3a74f 15.4%,
+      #ffec93 35.11%,
+      #e4bf66 51.28%,
+      #fed87e 68.97%,
+      #c89938 86.66%,
+      #956e0f 102.33%
+    );
+    opacity: 0.4;
+    z-index: 1;
+  }
+
+  // ── Top section
+  &__top {
+    position: relative;
+    z-index: 1;
+    padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+
+    .container-fluid {
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+    }
+  }
+
+  // ── 4-column grid
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  // ── Brand column
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  &__logo-link {
+    display: inline-block;
+    width: fit-content;
+  }
+
+  &__logo {
+    width: 60px;
+    height: auto;
+    display: block;
+  }
+
+  &__desc {
+    font-family: var(--font-mona), sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.38);
+    max-width: 300px;
+  }
+
+  // ── Socials
+  &__socials {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.3rem;
+  }
+
+  &__social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    transition:
+      border-color 0.25s ease,
+      color 0.25s ease,
+      background 0.25s ease;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      border-color: rgba(200, 153, 56, 0.4);
+      color: #c89938;
+      background: rgba(200, 153, 56, 0.06);
+    }
+  }
+
+  // ── Generic col
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  &__col-title {
+    font-family: "Lato", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(201, 168, 76, 0.7);
+    margin: 0;
+  }
+
+  // ── Nav links list
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-geist), sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    padding: 0.38rem 0;
+    transition:
+      color 0.22s ease,
+      gap 0.22s ease;
+
+    &:hover {
+      color: #fff;
+      gap: 0.75rem;
+    }
+
+    &:hover .footer__link-arrow {
+      color: #c89938;
+    }
+  }
+
+  &__link-arrow {
+    font-size: 0.75rem;
+    color: rgba(200, 153, 56, 0.45);
+    transition: color 0.22s ease;
+    line-height: 1;
+  }
+
+  // ── Contact list
+  &__contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  &__contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid rgba(200, 153, 56, 0.16);
+    background: rgba(200, 153, 56, 0.04);
+    color: #c89938;
+    margin-top: 1px;
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__contact-label {
+    display: block;
+    font-family: "Lato", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.28);
+    margin-bottom: 0.2rem;
+  }
+
+  &__contact-value {
+    display: block;
+    font-family: var(--font-geist), sans-serif;
+    font-size: 0.86rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color 0.22s ease;
+    line-height: 1.45;
+
+    &[href]:hover {
+      color: #fff;
+    }
+  }
+
+  // ── Divider
+  &__divider {
+    position: relative;
+    z-index: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(200, 153, 56, 0.25),
+      transparent
+    );
+    margin-inline: clamp(1.5rem, 5vw, 3rem);
+  }
+
+  // ── Bottom bar
+  &__bottom {
+    position: relative;
+    z-index: 1;
+    padding: 1.4rem 0;
+
+    .container-fluid {
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+    }
+  }
+
+  &__bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  }
+
+  &__copy {
+    font-family: "Lato", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.25);
+    margin: 0;
+  }
+
+  &__legal-links {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  &__legal-link {
+    font-family: "Lato", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.25);
+    text-decoration: none;
+    transition: color 0.22s ease;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  &__legal-dot {
+    display: block;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
