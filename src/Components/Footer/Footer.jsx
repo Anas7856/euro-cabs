@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-import "./footer.scss";
+import "./Footer.scss";
 
 const Footer = () => {
   const navLinks = ["Fleet", "Drive With Us", "About Us", "Contact Us"];
